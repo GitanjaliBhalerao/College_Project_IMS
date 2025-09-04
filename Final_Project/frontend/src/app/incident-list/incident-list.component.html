@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="main-container">
+    <h2>Incident List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Priority</th>
+          <th>Created On</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let incident of incidents">
+          <td>{{ incident.id }}</td>
+          <td>{{ incident.title }}</td>
+          <td>{{ incident.description }}</td>
+          <td>{{ incident.status }}</td>
+          <td
+            [ngClass]="{
+              'high-priority': incident.priority === 'High',
+              'medium-priority': incident.priority === 'Medium',
+              'low-priority': incident.priority === 'Low'
+            }"
+          >
+            {{ incident.priority }}
+          </td>
+          <td>
+            {{ incident.createdAt | date : "dd/MM/yy" }}<br />
+            {{ incident.createdAt | date : "hh:mm a" }}
+          </td>
+          <td>
+            <button (click)="editIncident(incident)">Edit</button>
+            <button (click)="deleteIncident(incident.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

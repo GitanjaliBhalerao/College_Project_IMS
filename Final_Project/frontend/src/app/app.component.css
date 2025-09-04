@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background-color: rgb(250, 179, 117);
+}
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #333;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.side-nav .nav-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.side-nav a {
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.side-nav a i {
+  margin-right: 12px;
+}
+
+.side-nav a.active {
+  background-color: #e05b02;
+}
+
+.side-nav a:hover {
+  background-color: #b24700;
+}
+
+.main-div {
+  width: calc(100vw - 220px);
+  margin-left: auto;
+  height: 100%;
+  /* background-color: rgb(0, 111, 11); */
+}
+
+router-outlet {
+  margin: 0;
+}

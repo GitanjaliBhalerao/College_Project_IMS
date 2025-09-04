@@ -1,0 +1,71 @@
+<div class="form-container">
+  <form
+    (ngSubmit)="createIncident(incidentForm)"
+    #incidentForm="ngForm"
+    class="incident-form"
+  >
+    <h2>Create Incident</h2>
+    <div class="main">
+      <div class="left">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            placeholder="Enter Title"
+            [(ngModel)]="incident.title"
+            name="title"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            placeholder="Enter Description"
+            [(ngModel)]="incident.description"
+            name="description"
+            required
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="form-group">
+          <label for="status">Status:</label>
+          <select
+            id="status"
+            [(ngModel)]="incident.status"
+            name="status"
+            required
+          >
+            <option value="" disabled selected>Please choose</option>
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="priority">Priority:</label>
+          <select
+            id="priority"
+            [(ngModel)]="incident.priority"
+            name="priority"
+            required
+          >
+            <option value="" disabled selected>Please choose</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit">Create</button>
+  </form>
+
+  <div *ngIf="showNotification" class="notification">
+    {{ notification }}
+  </div>
+</div>
